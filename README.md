@@ -28,7 +28,7 @@ El cliente es una compañía de coches y nos pide que le realicemos informes sob
 
 1)	Leer los datos con python. Ficheros de navegación y de conversión (ISSUES)
 
-2)	Separar los datos en columnas, y obtener para cada línea de navegación: campaña, adgoup, advertisement y site link que se obtiene de la columna URL. (ISSUES)
+2)	Separar los datos en columnas, y obtener para cada línea de navegación: campaña(gclid), adgoup(grupo de anuncios que comparten objetivos), advertisement y site link que se obtiene de la columna URL. (ISSUES)
 
 3)	Identificar si hay usuarios repetidos: id_user, gclid, cookie (ISSUES)
 
@@ -36,7 +36,7 @@ El cliente es una compañía de coches y nos pide que le realicemos informes sob
 
 		Y ordenar los datos según ts(ISSUES)
 
-4)	Unir los datos de navegación ya tratados con los datos de conversiones,creando una columna de 0 y 1 indicando si el usuario no ha convertido o si ha convertido. 
+4)	Unir los datos de navegación ya tratados con los datos de conversiones,creando una columna de 0 y 1 indicando si el usuario no ha convertido o si ha convertido.
 
 	La unión se hace a partir de la columna id_suite, si esta está vacía sería por la de gclid, y si esta está vacía también por cookie.
 
