@@ -1,5 +1,10 @@
 from paso2proyecto1 import separarUrl, separarUrlColumnaDDF, sacarunaURL
 import pandas as pd
+conversiones=pd.read_csv("conversiones.csv", sep=";")
+navegacion=pd.read_csv("navegacion.csv", sep=";")
+
+nav=pd.DataFrame(navegacion)
+conv=pd.DataFrame(conversiones)
 
 #para identificar si hay elementos repetidos
 def identificarRepetidos (DataFrame):
@@ -27,3 +32,5 @@ def eliminarRepetidos (DataFrame):
 
     DataFrame.sort_values(by='ts', ignore_index= True)
     return DataFrame
+
+nav.sort_values(by=["ts"], inplace=True)
