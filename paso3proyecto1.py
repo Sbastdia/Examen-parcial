@@ -5,9 +5,19 @@ import pandas as pd
 def identificarRepetidos (DataFrame):
 
     for i in range (0,len(DataFrame)):
-        DataFrame= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['id_user'])])
+        if(DataFrame.iloc[i]["id_user"]!= ''):
+            DataFrame= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['id_user'])])
+        elif(DataFrame.iloc[i]["gclid"]!= ''):
+            DataFrame= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['gclid'])])
+        else:
+            DataFrame= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['url_landing'])])
 
 def eliminarRepetidos (DataFrame):
 
     for i in range (0, len(DataFrame)):
-        DataFrame = DataFrame.drop_duplicates(DataFrame.columns[~DataFrame.columns.isin(['id_user'])])
+        if(DataFrame.iloc[i]["id_user"]!= ''):
+            DataFrame = DataFrame.drop_duplicates(DataFrame.columns[~DataFrame.columns.isin(['id_user'])])
+        elif(DataFrame.iloc[i]["gclid"]!= ''):
+            DataFrame = DataFrame.drop_duplicates(DataFrame.columns[~DataFrame.columns.isin(['gclid'])])
+        else:
+            DataFrame = DataFrame.drop_duplicates(DataFrame.columns[~DataFrame.columns.isin(['url_landing'])])
