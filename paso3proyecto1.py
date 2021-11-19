@@ -12,6 +12,9 @@ def identificarRepetidos (DataFrame):
         else:
             DataFrame= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['url_landing'])])
 
+    DataFrame.sort_values(by='ts', ignore_index= True)
+    return DataFrame
+
 def eliminarRepetidos (DataFrame):
 
     for i in range (0, len(DataFrame)):
@@ -21,3 +24,6 @@ def eliminarRepetidos (DataFrame):
             DataFrame = DataFrame.drop_duplicates(DataFrame.columns[~DataFrame.columns.isin(['gclid'])])
         else:
             DataFrame = DataFrame.drop_duplicates(DataFrame.columns[~DataFrame.columns.isin(['url_landing'])])
+
+    DataFrame.sort_values(by='ts', ignore_index= True)
+    return DataFrame
