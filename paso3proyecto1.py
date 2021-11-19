@@ -5,9 +5,9 @@ import pandas as pd
 def identificarRepetidos (DataFrame):
 
     for i in range (0,len(DataFrame)):
-        df.duplicated(df.columns[~df.columns.isin(['id_user'])])
+        DataFrame= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['id_user'])])
 
 def eliminarRepetidos (DataFrame):
 
     for i in range (0, len(DataFrame)):
-        df = df.drop_duplicates(df.columns[~df.columns.isin(['id_user'])])
+        DataFrame = DataFrame.drop_duplicates(DataFrame.columns[~DataFrame.columns.isin(['id_user'])])
