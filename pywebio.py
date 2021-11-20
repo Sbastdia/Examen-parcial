@@ -13,12 +13,16 @@ def app():
     radio("Gender", options=['Male', 'Female', 'Other'],name='gndr', required=True),
     textarea('Tell something about yourself', rows=3, name='abt', required=True),
     file_upload('Profile Image',placeholder='Choose file',accept='image/*',name='dp', required=True)])
+    put_text("Hemos estudiado cuántas visitas recibe en el día el cliente y cuántas de ellas convierten y cuántas no (en %)")
+    put_text("También hemos estudiado cuántas hay de cada una por tipo de conversión (CALL o FORM)")
+    put_text("Además hemos estudiado el porcentaje de usuarios recurrentes sobre el total de usuarios")
+    put_text("Y por último hemos estudiado el coche más visitado y si es el que más convierte")
 
 #extracting image from input
 img = data['dp']
-with open('img.png', 'wb') as file:
+with open('img.jpg', 'wb') as file:
     file.write(img['content'])
-with open('img.png', 'rb') as file:
+with open('img.jpg', 'rb') as file:
     img = file.read()
 #display image
 put_image(img)
@@ -54,7 +58,7 @@ def generate_pdf(data,file_name):
     pdf.add_page()
     pdf.set_font('Arial', 'B', 18)
     pdf.cell(190, 15, 'Professional Info', ln=1, align='C')
-    pdf.image('img.png', 85, 30, 40)
+    pdf.image('img.jpg', 85, 30, 40)
     pdf.line(10, 80, 200, 80)
     pdf.cell(60, 60, '', ln=2)
     pdf.write_html(data)
