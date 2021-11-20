@@ -1,10 +1,6 @@
 import pandas as pd
 from pandas.core.frame import DataFrame
-conversiones=pd.read_csv("conversiones.csv", sep=";")
-navegacion=pd.read_csv("navegacion.csv", sep=";")
 
-nav=pd.DataFrame(navegacion)
-conv=pd.DataFrame(conversiones)
 
 #para eliminar los elementos que estén mal buscamos aquellos que no tengan sl(Site link) y los eliminamos
 def separarUrl(URL,palabraclave):
@@ -43,15 +39,22 @@ def separarUrlColumnaDDF(Dataframe,palabraclave):
             #print(type(Campa))
             Campa=Campa.append({palabraclave:camp}, ignore_index=True)
     return Campa
-print(len(nav))
-nav.dropna(subset=["url_landing"], inplace=True)
-print(len(nav))
 
-#camp,adg, adv, sl
-#Campaña=separarUrlColumnaDDF(nav,"camp")
-adgroup=separarUrlColumnaDDF(nav,"adg")
-#Campaña.to_csv("Campaña.csv")
-adgroup.to_csv("Adgroup.csv")
-#Campaf=nav.assign(Campaña=Campaña["campaña"])
-#print(Campaf.head)
-#Campaf.to_csv("Campaf.csv")
+if __name__ == "__main__":
+    conversiones=pd.read_csv("conversiones.csv", sep=";")
+    navegacion=pd.read_csv("navegacion.csv", sep=";")
+
+    nav=pd.DataFrame(navegacion)
+    conv=pd.DataFrame(conversiones)
+    #print(len(nav))
+    nav.dropna(subset=["url_landing"], inplace=True)
+    #print(len(nav))
+
+    #camp,adg, adv, sl
+    #Campaña=separarUrlColumnaDDF(nav,"camp")
+    adgroup=separarUrlColumnaDDF(nav,"adg")
+    #Campaña.to_csv("Campaña.csv")
+    adgroup.to_csv("Adgroup.csv", index=False)
+    #Campaf=nav.assign(Campaña=Campaña["campaña"])
+    #print(Campaf.head)
+    #Campaf.to_csv("Campaf.csv")

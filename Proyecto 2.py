@@ -53,8 +53,9 @@ def contarCoches(Dataframe):
     return Coches
 
 nav.dropna(subset=["url_landing"], inplace=True)
-nav2=nav.loc[0:10]
+
 Coches=contarCoches(nav)
+print("El primer coche es el coche con más")
 freqcoche=Coches.value_counts()
 print(freqcoche)
 # url2=nav.iloc[1]["url_landing"]
