@@ -30,7 +30,7 @@ def eliminarRepetidos (DataFrame):
         else:
             DataFrame = DataFrame.drop_duplicates(DataFrame.columns[~DataFrame.columns.isin(['url_landing'])])
 
-    DataFrame.sort_values(by='ts', ignore_index= True)
+
     return DataFrame
 
 nav.sort_values(by=["ts"], inplace=True)
