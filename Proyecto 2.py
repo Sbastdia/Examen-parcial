@@ -10,19 +10,19 @@ conv=pd.DataFrame(conversiones)
 #Ejercicio 1
 #nav.dropna(subset=["url_landing"], inplace=True)
 print("Ejercicio 1")
-nav["Convertido"]=0
-conv["Convertido"]=1
+nav=nav.assign(Convertido=0)
+conv=conv.assign(Convertido=1)
 numeroVisitas=nav.shape[0]
 print("El número de visitas es",numeroVisitas)
-#union= juntarTablas(nav, conv)
+
 numeronoconvertidos=len(nav["Convertido"])
 numeroconvertidos=len(conv["Convertido"])
 numerototal=numeronoconvertidos+numeroconvertidos
 print("no convertidos",numeronoconvertidos)
 print("convertidos", numeroconvertidos)
 print("El porcentaje de convertidos:",(numeroconvertidos/numerototal *100))
-rec= nav["Convertido"].value_counts(normalize=True)
-print(rec)
+print("El porcentaje de no convertidos:",(numeronoconvertidos/numerototal *100))
+
 #Ejercicio 2
 print("Ejercicio 2")
 freq = conv["lead_type"].value_counts()
@@ -30,8 +30,8 @@ print(freq)
 
 #Ejercicio 3
 print("Ejercicio 3")
-rec2= nav["user_recurrent"].value_counts(normalize=True)
-print(rec2)
+rec= nav["user_recurrent"].value_counts(normalize=True)
+print(rec)
 
 #Ejercicio 4
 print("Ejercicio 4")
@@ -55,10 +55,6 @@ def contarCoches(Dataframe):
 nav.dropna(subset=["url_landing"], inplace=True)
 
 Coches=contarCoches(nav)
-print("El primer coche es el coche con más")
+print("El primer coche es el coche con más búsquedas:")
 freqcoche=Coches.value_counts()
 print(freqcoche)
-# url2=nav.iloc[1]["url_landing"]
-# print(url2)
-# url="https://www.metropolis.com/es/ixs-electrico/gclid=Cj0KCQjw1dGJBhD4ARIsANb6OdmYnQIBLDemeVg6nbOtVVlqgU02Z3FgfQEefr98pUEyPdUTCj-CQWAaAlhyEALw_wcB&idUser=5fcc8b47-8fa0-4791-a6b8-6260f2ab0888&uuid=2ae80a9e-4a1d-495f-bfc7-24a2ee462cda&camp=1646697023&adg=61477462725&device=c&sl=&adv=379120564696&rec=false&"
-# print(type(SacarCoche(url)))

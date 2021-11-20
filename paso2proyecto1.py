@@ -53,8 +53,9 @@ if __name__ == "__main__":
     #camp,adg, adv, sl
     #Campaña=separarUrlColumnaDDF(nav,"camp")
     adgroup=separarUrlColumnaDDF(nav,"adg")
+    #Adv=separarUrlColumnaDDF(nav,"adv")
+    #sl=separarUrlColumnaDDF(nav,"sl")
     #Campaña.to_csv("Campaña.csv")
     adgroup.to_csv("Adgroup.csv", index=False)
-    #Campaf=nav.assign(Campaña=Campaña["campaña"])
-    #print(Campaf.head)
-    #Campaf.to_csv("Campaf.csv")
+    #Adv.to_csv("Adv.csv", index=False)
+    #sl.to_csv("sl.csv", index=False)
