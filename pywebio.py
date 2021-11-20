@@ -4,7 +4,7 @@ from pywebio import start_server
 from fpdf import FPDF, HTMLMixin
 
 def app():
-    put_markdown('# rofessional Info')
+    put_markdown('#Informe')
 #group all the inputs to make a form
     data = input_group("Basic info",[
     input('Input yourname', name='name', required=True),
