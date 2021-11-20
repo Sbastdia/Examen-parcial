@@ -1,4 +1,4 @@
-from typing import Union
+
 import pandas as pd
 from paso3proyecto1 import eliminarRepetidos
 
@@ -7,12 +7,11 @@ navegacion=pd.read_csv("navegacion.csv", sep=";")
 
 nav=pd.DataFrame(navegacion)
 conv=pd.DataFrame(conversiones)
+nav.assign(Convertido=0)
+conv.assign(Convertido=1)
 
 def juntarTablas(Dataframe1,Dataframe2):
 
-    Dataframe1= eliminarRepetidos(Dataframe1)
-    Dataframe2= eliminarRepetidos(Dataframe2)
-    Dataframe3= pd.DataFrame()
 
     if "id_suite" in Dataframe1.columns() and "id_suite" in Dataframe2.columns():
         Dataframe3= pd.merge(Dataframe1, Dataframe2, on='id_suite', how='outer',suffixes=("_nav","_conv"))
@@ -21,7 +20,6 @@ def juntarTablas(Dataframe1,Dataframe2):
     else:
         Dataframe3= pd.merge(Dataframe1, Dataframe2, on='url_landing', how='outer',suffixes=("_nav","_conv"))
 
-    Dataframe3= eliminarRepetidos(Dataframe3)
     return Dataframe3
 
 

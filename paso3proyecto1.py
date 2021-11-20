@@ -11,14 +11,14 @@ def identificarRepetidos (DataFrame):
 
     for i in range (0,len(DataFrame)):
         if(DataFrame.iloc[i]["id_user"]!= ''):
-            DataFrame= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['id_user'])])
+            DataFrame2= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['id_user'])])
         elif(DataFrame.iloc[i]["gclid"]!= ''):
-            DataFrame= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['gclid'])])
+            DataFrame2= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['gclid'])])
         else:
-            DataFrame= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['url_landing'])])
+            DataFrame2= DataFrame.duplicated(DataFrame.columns[~DataFrame.columns.isin(['url_landing'])])
 
-    DataFrame.sort_values(by='ts', ignore_index= True)
-    return DataFrame
+
+    return DataFrame2
 
 def eliminarRepetidos (DataFrame):
 

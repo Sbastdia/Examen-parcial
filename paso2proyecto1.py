@@ -31,7 +31,7 @@ def sacarunaURL(Dataframe,i):
     return url
 
 def separarUrlColumnaDDF(Dataframe,palabraclave):
-    Campa=pd.DataFrame(columns=["campaña"])
+    Campa=pd.DataFrame(columns=[palabraclave])
     Data2=Dataframe
     borrados=0
     for i in range (0,len(Data2)):
@@ -41,16 +41,17 @@ def separarUrlColumnaDDF(Dataframe,palabraclave):
             borrados+=1
         else:
             #print(type(Campa))
-            Campa=Campa.append({'campaña':camp}, ignore_index=True)
+            Campa=Campa.append({palabraclave:camp}, ignore_index=True)
     return Campa
 print(len(nav))
 nav.dropna(subset=["url_landing"], inplace=True)
 print(len(nav))
-#nav3=nav.loc[7149:7160]
-# #camp,adg, adv, sl
-Campaña=separarUrlColumnaDDF(nav,"camp")
-# adgroup=separarUrlColumnaDDF(nav3,"adg")
-Campaña.to_csv("Campaña.csv")
+
+#camp,adg, adv, sl
+#Campaña=separarUrlColumnaDDF(nav,"camp")
+adgroup=separarUrlColumnaDDF(nav,"adg")
+#Campaña.to_csv("Campaña.csv")
+adgroup.to_csv("Adgroup.csv")
 #Campaf=nav.assign(Campaña=Campaña["campaña"])
 #print(Campaf.head)
 #Campaf.to_csv("Campaf.csv")
